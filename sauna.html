@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сауна — Водная Индустрия</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'},
+            secondary: {50:'#ecfeff',100:'#cffafe',200:'#a5f3fc',300:'#67e8f9',400:'#22d3ee',500:'#06b6d4',600:'#0891b2',700:'#0e7490',800:'#155e75',900:'#164e63'},
+          },
+          fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+          boxShadow: { soft:'0 2px 15px -3px rgba(0,0,0,.07),0 10px 20px -2px rgba(0,0,0,.04)'}
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body class="font-sans bg-white text-gray-900">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html#steam-rooms" class="text-white font-bold">💧 Водная Индустрия</a>
+      <nav class="text-sm text-white/80 flex items-center gap-4">
+        <a href="index.html#steam-rooms" class="hover:text-white">На главную</a>
+        <a href="banya.html" class="hover:text-white">Баня</a>
+        <a href="hammam.html" class="hover:text-white">Хаммам</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="min-h-[50vh] flex items-center justify-center relative" style="background-image:url('img/sauna.jpg');background-size:cover;background-position:center;">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 text-center px-4 pt-24">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Финская сауна</h1>
+      <p class="text-white/90 text-lg max-w-3xl mx-auto">Сухой жар 80–100°C, быстро прогревается и создаёт бодрящий эффект.</p>
+    </div>
+  </section>
+
+  <!-- Pros / Cons -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-2xl shadow-soft p-8 border border-gray-100">
+          <h2 class="text-2xl font-bold text-green-600 mb-4">Плюсы</h2>
+          <ul class="space-y-3 text-gray-700">
+            <li>✅ Быстрый прогрев и простота эксплуатации</li>
+            <li>✅ Меньше требований к влажности и вентиляции, чем у бани</li>
+            <li>✅ Хорошо подходит для регулярных коротких сеансов</li>
+            <li>✅ Подходит для небольших помещений</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl shadow-soft p-8 border border-gray-100">
+          <h2 class="text-2xl font-bold text-amber-600 mb-4">Минусы</h2>
+          <ul class="space-y-3 text-gray-700">
+            <li>⚠️ Сухой воздух может быть некомфортным для некоторых</li>
+            <li>⚠️ Нет традиционных паровых процедур</li>
+            <li>⚠️ Требуется качественная теплоизоляция</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="py-6 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-6 flex items-center justify-between">
+        <h2 class="text-3xl font-extrabold">Фотопримеры</h2>
+        <a href="gallery.html" class="text-blue-600 hover:text-blue-700 text-sm font-semibold">Еще</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <img src="img/sauna.jpg" class="gallery-img w-full h-64 object-cover rounded-xl shadow cursor-zoom-in" alt="Сауна 1" loading="lazy" />
+        <img src="img/banya.jpg" class="gallery-img w-full h-64 object-cover rounded-xl shadow cursor-zoom-in" alt="Сауна 2" loading="lazy" />
+        <img src="img/hammam.jpg" class="gallery-img w-full h-64 object-cover rounded-xl shadow cursor-zoom-in" alt="Сауна 3" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="fixed inset-0 bg-black/90 z-[999] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+    <button id="lightboxClose" class="absolute top-4 right-4 text-white text-3xl leading-none">×</button>
+    <img id="lightboxImg" src="" alt="Просмотр изображения" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl transform transition-all duration-300 opacity-0 scale-95" />
+  </div>
+
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm">
+      <div class="flex items-center justify-between">
+        <span>© 2024 Водная Индустрия</span>
+        <a href="index.html#steam-rooms" class="text-blue-300 hover:text-white">Вернуться к парным помещениям</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Lightbox for gallery images
+    (function(){
+      const imgs = Array.from(document.querySelectorAll('.gallery-img'));
+      const modal = document.getElementById('lightbox');
+      const modalImg = document.getElementById('lightboxImg');
+      const closeBtn = document.getElementById('lightboxClose');
+      if(!imgs.length || !modal || !modalImg) return;
+      const open = (src)=>{ modalImg.src=src; modal.classList.remove('hidden'); requestAnimationFrame(()=>{ modal.classList.remove('opacity-0'); modalImg.classList.remove('opacity-0','scale-95'); modalImg.classList.add('opacity-100','scale-100');}); document.body.style.overflow='hidden'; };
+      const close = ()=>{ modal.classList.add('opacity-0'); modalImg.classList.remove('opacity-100','scale-100'); modalImg.classList.add('opacity-0','scale-95'); setTimeout(()=>{ modal.classList.add('hidden'); modalImg.src=''; document.body.style.overflow=''; },250); };
+      imgs.forEach(el=> el.addEventListener('click', ()=> open(el.src)));
+      closeBtn?.addEventListener('click', close);
+      modal.addEventListener('click', (e)=>{ if(e.target===modal) close(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && !modal.classList.contains('hidden')) close(); });
+    })();
+  </script>
+</body>
+</html>
+
+
+

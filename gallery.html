@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Галерея проектов — Водная Индустрия</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'},
+            secondary: {50:'#ecfeff',100:'#cffafe',200:'#a5f3fc',300:'#67e8f9',400:'#22d3ee',500:'#06b6d4',600:'#0891b2',700:'#0e7490',800:'#155e75',900:'#164e63'},
+          },
+          fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+          boxShadow: { soft:'0 2px 15px -3px rgba(0,0,0,.07),0 10px 20px -2px rgba(0,0,0,.04)', card:'0 10px 30px -10px rgba(0,0,0,.25)'}
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>html{scroll-behavior:smooth}</style>
+</head>
+<body class="font-sans bg-white text-gray-900">
+  <!-- Header (минимальный) -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/60 text-white backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-14 flex items-center justify-between">
+        <a href="index.html#portfolio" class="flex items-center gap-2 text-lg font-extrabold">
+          <span>💧</span>
+          <span><span class="text-orange-400">Водная</span> <span class="text-cyan-300">Индустрия</span></span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="index.html#solutions" class="hover:text-white">Решения</a>
+          <a href="index.html#steam-rooms" class="hover:text-white">Парные</a>
+          <a href="index.html#contact" class="hover:text-white">Контакты</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page title -->
+  <section class="pt-24 pb-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-5xl font-extrabold">Галерея проектов</h1>
+      <p class="text-gray-600 mt-3">Выберите раздел, чтобы посмотреть подборку работ</p>
+    </div>
+  </section>
+
+  <!-- Category grid -->
+  <section class="py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Стационарные бассейны -->
+        <a href="gallery-stacionarny.html" class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/stacionar.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Стационарные бассейны" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Стационарные бассейны</h3>
+            </div>
+          </div>
+        </a>
+
+        <!-- Сборно-разборные -->
+        <a href="gallery-sbornorazborny.html" class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/pool_razbor.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Сборно-разборные бассейны" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Сборно‑разборные бассейны</h3>
+            </div>
+          </div>
+        </a>
+
+        <!-- Композитные -->
+        <a href="gallery-kompozitny.html" class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/komposit.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Композитные бассейны" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Композитные бассейны</h3>
+            </div>
+          </div>
+        </a>
+
+        <!-- Хаммамы -->
+        <a href="gallery-hammam.html" class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/hammam.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Фотогалерея хаммамы" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Фотогалерея хаммамы</h3>
+            </div>
+          </div>
+        </a>
+
+        <!-- Мозаичные интерьеры (пока ссылка на главную) -->
+        <a href="index.html#contact" class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/big_pool8.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Мозаичные интерьеры" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Мозаичные интерьеры</h3>
+            </div>
+          </div>
+        </a>
+
+        <!-- Сауны -->
+        <a href="gallery-sauny.html" class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/sauna.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Фотогалерея сауны" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Фотогалерея сауны</h3>
+            </div>
+          </div>
+        </a>
+
+        <!-- Фонтаны (плейсхолдер) -->
+        <div class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/big_pool6.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Фонтаны" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Фонтаны</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Души (плейсхолдеры) -->
+        <div class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/big_pool3.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Душ Otter" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Душ Otter</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/big_pool4.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Душ Шарко" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Душ Шарко</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Роспись (плейсхолдер) -->
+        <div class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/big_pool7.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Фотогалерея роспись" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Фотогалерея роспись</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Дизайн (плейсхолдер) -->
+        <div class="group rounded-2xl overflow-hidden shadow-card bg-white">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/big_pool8.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" alt="Дизайн" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-xl font-extrabold uppercase tracking-wide">Дизайн</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="text-xl font-extrabold mb-3">💧 Водная Индустрия</div>
+          <p class="text-gray-400">Профессиональные решения для воды с 2003 года</p>
+        </div>
+        <div>
+          <div class="font-semibold mb-3">Навигация</div>
+          <ul class="text-gray-400 space-y-1 text-sm">
+            <li><a href="index.html#solutions" class="hover:text-white">Решения</a></li>
+            <li><a href="index.html#steam-rooms" class="hover:text-white">Парные помещения</a></li>
+            <li><a href="index.html#portfolio" class="hover:text-white">Наши работы</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold mb-3">Контакты</div>
+          <div class="text-gray-400 text-sm space-y-1">
+            <div>📞 (3852) 315‑600</div>
+            <div>📍 Барнаул, ул. Фурманова, 81а</div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 mt-8 pt-6 text-center text-gray-400 text-sm">© 2024 Водная Индустрия. Все права защищены.</div>
+    </div>
+  </footer>
+</body>
+</html>
+
+

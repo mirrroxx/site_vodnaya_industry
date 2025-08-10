@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Водная Индустрия - Бассейны, Хаммамы, Сауны, Мозаика</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        secondary: {
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'fade-in-down': 'fadeInDown 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.3s ease-out',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateY(30px)',
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateY(0)',
+                            },
+                        },
+                        fadeInDown: {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateY(-30px)',
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateY(0)',
+                            },
+                        },
+                        scaleIn: {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'scale(0.9)',
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'scale(1)',
+                            },
+                        },
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+                        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'large': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+                    },
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        /* Dark mode scrollbar */
+        @media (prefers-color-scheme: dark) {
+            ::-webkit-scrollbar-track {
+                background: #2d2d2d;
+            }
+            
+            ::-webkit-scrollbar-thumb {
+                background: #555;
+            }
+            
+            ::-webkit-scrollbar-thumb:hover {
+                background: #777;
+            }
+        }
+        
+        /* Animation for service cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Form input focus styles */
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Service card hover effects */
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .service-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+        
+        /* Button styles */
+        .hero-button {
+            border: none !important;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5) !important;
+            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+        }
+        /* Header states */
+        .hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translateY(-100%) !important;
+            transition: all 0.3s ease-in-out !important;
+        }
+        
+        .visible {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            transition: all 0.3s ease-in-out !important;
+        }
+        
+
+        
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .scroll-to-top:hover {
+            background: linear-gradient(135deg, #2563eb, #0891b2);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scroll-to-top:active {
+            transform: translateY(-1px);
+        }
+        
+        /* Gallery enhancements */
+        .gallery-dot {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-dot:hover {
+            transform: scale(1.2);
+        }
+        
+        .gallery-dot.active {
+            background-color: white !important;
+            opacity: 1 !important;
+        }
+        
+        /* Gallery container hover effect */
+        #gallery-slider {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Navigation buttons enhancement */
+        #prevBtn, #nextBtn {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        #prevBtn:hover, #nextBtn:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        /* Services Grid enhancements */
+        .service-block {
+            transition: all 0.3s ease;
+        }
+        
+        .service-block:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-block .bg-black {
+            transition: all 0.3s ease;
+        }
+        
+        .service-block:hover .bg-black {
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Neon glow effect for service blocks */
+        .service-block:hover {
+            filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.5));
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <div class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+        <!-- Main Header - Fixed at top -->
+        <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-32">
+                    <!-- Logo -->
+                    <div class="flex items-center space-x-4">
+                        <div class="text-2xl font-bold">
+                            💧 <span class="text-orange-500">Водная</span> <span class="text-cyan-500">Индустрия</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Navigation - Centered -->
+                    <nav class="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
+                        <a href="#services" class="text-white hover:text-blue-300 transition-colors font-medium">
+                            Услуги
+                        </a>
+                        <a href="#about" class="text-white hover:text-blue-300 transition-colors font-medium">
+                            О компании
+                        </a>
+                        <a href="#contact" class="text-white hover:text-blue-300 transition-colors font-medium">
+                            Контакты
+                        </a>
+                    </nav>
+                    
+                    <!-- Contact Info -->
+                    <div class="flex flex-col items-end space-y-1">
+                        <a href="tel:+73852315600" class="text-white hover:text-blue-300 transition-colors text-sm">
+                            📞 (3852) 315-600
+                        </a>
+                        <span class="text-white text-sm">
+                            Фурманова, 81а
+                        </span>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-md text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Navigation -->
+                <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-white border-opacity-20">
+                    <nav class="flex flex-col space-y-4">
+                        <a href="#services" class="text-white hover:text-blue-300 transition-colors">
+                            Услуги
+                        </a>
+                        <a href="#about" class="text-white hover:text-blue-300 transition-colors">
+                            О компании
+                        </a>
+                        <a href="#contact" class="text-white hover:text-blue-300 transition-colors">
+                            Контакты
+                        </a>
+                        <div class="pt-4 border-t border-white border-opacity-20 space-y-3">
+                            <a href="tel:+73852315600" class="text-white hover:text-blue-300 transition-colors text-sm">
+                                📞 (3852) 315-600
+                            </a>
+                            <span class="text-white text-sm">
+                                📍 Барнаул, ул. Фурманова, 81а
+                            </span>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sticky Header - Appears when main header disappears -->
+        <header id="sticky-header" class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-80 backdrop-blur-sm shadow-md transition-all duration-300 hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <!-- Logo -->
+                    <div class="flex items-center space-x-4">
+                        <div class="text-xl font-bold">
+                            💧 <span class="text-orange-500">Водная</span> <span class="text-cyan-500">Индустрия</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Navigation - Centered -->
+                    <nav class="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
+                        <a href="#services" class="text-white hover:text-blue-300 transition-colors font-medium">
+                            Услуги
+                        </a>
+                        <a href="#about" class="text-white hover:text-blue-300 transition-colors font-medium">
+                            О компании
+                        </a>
+                        <a href="#contact" class="text-white hover:text-blue-300 transition-colors font-medium">
+                            Контакты
+                        </a>
+                    </nav>
+                    
+                    <!-- Contact Info -->
+                    <div class="flex flex-col items-end space-y-1">
+                        <a href="tel:+73852315600" class="text-white hover:text-blue-300 transition-colors text-sm">
+                            📞 (3852) 315-600
+                        </a>
+                        <span class="text-white text-sm">
+                            Фурманова, 81а
+                        </span>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-md text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center" style="background-image: url('img/big_pool8.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <!-- Затемнение для лучшей читаемости текста -->
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative z-10 w-full">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white dark:text-white mb-6 tracking-tight">
+                        Водная Индустрия
+                    </h1>
+                    <p class="text-xl md:text-2xl text-white dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+                        Бассейны • Хаммамы • Сауны • Мозаика
+                    </p>
+                    <p class="text-lg text-white dark:text-gray-400 mb-12 max-w-4xl mx-auto">
+                        Работаем на рынке бассейнов с 2003 года. За более чем 20 лет реализовали множество проектов, 
+                        накопив огромный опыт в проектировании, строительстве и комплектации бассейнов, 
+                        спортивных комплексов и оздоровительных центров.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-8 justify-center">
+                        <button class="hero-button bg-blue-600 hover:bg-blue-700 text-white px-16 py-8 rounded-full font-bold transition-colors shadow-lg flex items-center justify-center h-20 w-80">
+                            <span class="whitespace-nowrap">НАШИ ПРОЕКТЫ</span>
+                        </button>
+                        <button class="hero-button bg-white hover:bg-gray-100 text-gray-900 px-16 py-8 rounded-full font-bold transition-colors shadow-lg flex items-center justify-center h-20 w-80">
+                            <span class="whitespace-nowrap">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Pool Types Section -->
+        <section id="services" class="py-28 bg-white dark:bg-gray-900">
+            <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+                <div class="text-center mb-20">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6">
+                        <span class="text-blue-600">ТИПЫ</span> <span class="text-gray-900 dark:text-white">БАССЕЙНОВ</span>
+                    </h2>
+                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        Нажмите на картинку, чтобы узнать подробности каждого типа
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-64 justify-items-center">
+                    <!-- Concrete Pool -->
+                    <a href="stacionarny.html" class="pool-type-card group cursor-pointer block min-w-[340px] md:min-w-[400px] lg:min-w-[440px]" aria-label="Подробнее о стационарных бассейнах">
+                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                            <img 
+                                src="img/stacionar.jpg" 
+                                alt="Стационарный бассейн" 
+                                class="w-full h-80 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-white text-2xl font-extrabold">
+                                    СТАЦИОНАРНЫЙ
+                                </h3>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Composite Pool -->
+                    <a href="kompozitny.html" class="pool-type-card group cursor-pointer block min-w-[340px] md:min-w-[400px] lg:min-w-[440px]" aria-label="Подробнее о композитных бассейнах">
+                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                            <img 
+                                src="img/komposit.jpg" 
+                                alt="Композитный бассейн" 
+                                class="w-full h-80 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-white text-2xl font-extrabold">
+                                    КОМПОЗИТНЫЙ
+                                </h3>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Modular Pool -->
+                    <a href="sbornorazborny.html" class="pool-type-card group cursor-pointer block min-w-[340px] md:min-w-[400px] lg:min-w-[440px]" aria-label="Подробнее о сборно-разборных бассейнах">
+                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                            <img 
+                                src="img/pool_razbor.jpg" 
+                                alt="Сборный бассейн" 
+                                class="w-full h-80 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-white text-2xl font-extrabold">
+                                    СБОРНО-РАЗБОРНЫЙ
+                                </h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-blue-50">
+            <div class="max-w-screen-2xl mx-auto px-2">
+                <div class="flex flex-col lg:flex-row gap-6 items-start">
+                    <!-- Левая часть: текст + статистика -->
+                    <div class="flex-1 pl-16">
+                        <h2 class="text-6xl font-extrabold mb-10 text-gray-900">Главная</h2>
+                        <div class="space-y-2 text-lg text-gray-700 max-w-3xl">
+                            <p>Мы специализируемся на производстве композитных бассейнов различных форм и размеров, специально<br>разработанных нашими проектировщиками для суровых сибирских условий.</p>
+                            <p>Стабильно закрепив за собой ведущее место в Сибири по производству бассейнов и купелей из композитных материалов, обеспечиваем нашим клиентам высокое качество бассейнов для дома, дачи или<br>коммерческих целей.</p>
+                            <p>Композитные бассейны "АКВАРЕЛЬ" удовлетворяют самых искушённых и требовательных покупателей.</p>
+                            <p>Оптимальное соотношение цены и качества. Долговечность и легкость в использовании.</p>
+                            <p>И это лишь некоторые отличительные особенности наших бассейнов!</p>
+                        </div>
+                        <!-- Статистика -->
+                        <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl">
+                            <div class="text-left">
+                                <div class="text-sky-500 text-5xl font-extrabold">30</div>
+                                <div class="text-gray-600 text-lg mt-2">Более 30 видов бассейнов</div>
+                            </div>
+                            <div class="text-left">
+                                <div class="text-sky-500 text-5xl font-extrabold">458</div>
+                                <div class="text-gray-600 text-lg mt-2">Построенных объектов</div>
+                            </div>
+                            <div class="text-left">
+                                <div class="text-sky-500 text-5xl font-extrabold">2009</div>
+                                <div class="text-gray-600 text-lg mt-2">Компания основана в 2009 году</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Правая часть: форма -->
+                    <div class="flex-1 flex justify-end pr-16">
+                        <div class="bg-sky-400 rounded-xl p-10 py-16 min-h-[600px] w-full max-w-lg flex flex-col items-center shadow-lg">
+                            <h3 class="text-4xl font-extrabold text-white mb-2 text-center">ОСТАВИТЬ ЗАЯВКУ</h3>
+                            <p class="text-white text-center mb-6">Оставьте заявку на сайте и мы перезвоним Вам в ближайшее время</p>
+                            <form class="w-full flex flex-col flex-grow min-h-full justify-between gap-6">
+                                <input type="text" placeholder="Ваше имя" class="w-full p-4 rounded-lg bg-blue-100 text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-300 outline-none" />
+                                <input type="tel" placeholder="Телефон *" class="w-full p-4 rounded-lg bg-blue-100 text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-300 outline-none" required />
+                                <input type="email" placeholder="E-mail" class="w-full p-4 rounded-lg bg-blue-100 text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-300 outline-none" />
+                                <label class="flex items-center text-white text-sm"><input type="checkbox" class="mr-2" required /> Ознакомлен(на) с <a href="#" class="underline ml-1">пользовательским соглашением</a></label>
+                                <button type="submit" class="mt-2 bg-orange-400 hover:bg-orange-500 text-white font-bold py-4 rounded-lg transition-colors">ОТПРАВИТЬ ЗАЯВКУ</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steam Rooms Section -->
+        <section id="steam-rooms" class="py-28 bg-white dark:bg-gray-900">
+            <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+                <div class="text-center mb-20">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6">
+                        <span class="text-blue-600">ПАРНЫЕ</span> <span class="text-gray-900 dark:text-white">ПОМЕЩЕНИЯ</span>
+                    </h2>
+                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        Нажмите на картинку, чтобы узнать подробности каждого типа
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-64 justify-items-center">
+                    <!-- Traditional Banya -->
+                    <a href="banya.html" class="steam-room-card group cursor-pointer block min-w-[340px] md:min-w-[400px] lg:min-w-[440px]" aria-label="Подробнее о традиционной бане">
+                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                            <img 
+                                src="img/banya.jpg" 
+                                alt="Традиционная баня" 
+                                class="w-full h-80 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-white text-2xl font-extrabold">
+                                    БАНЯ
+                                </h3>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Sauna -->
+                    <a href="sauna.html" class="steam-room-card group cursor-pointer block min-w-[340px] md:min-w-[400px] lg:min-w-[440px]" aria-label="Подробнее о финской сауне">
+                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                            <img 
+                                src="img/sauna.jpg" 
+                                alt="Финская сауна" 
+                                class="w-full h-80 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-white text-2xl font-extrabold">
+                                    САУНА
+                                </h3>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Hammam -->
+                    <a href="hammam.html" class="steam-room-card group cursor-pointer block min-w-[340px] md:min-w-[400px] lg:min-w-[440px]" aria-label="Подробнее о турецком хаммаме">
+                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                            <img 
+                                src="img/hammam.jpg" 
+                                alt="Турецкий хаммам" 
+                                class="w-full h-80 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-white text-2xl font-extrabold">
+                                    ХАММАМ
+                                </h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-28 bg-gray-50 dark:bg-gray-800">
+            <div class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+                <div class="text-center mb-20">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6">
+                        <span class="text-blue-600">НАШИ</span> <span class="text-gray-900 dark:text-white">РАБОТЫ</span>
+                    </h2>
+                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        Представлена лишь малая часть
+                    </p>
+                </div>
+
+                <!-- Gallery Container -->
+                <div class="relative max-w-6xl mx-auto">
+                    <div class="overflow-hidden rounded-3xl shadow-2xl border-4 border-white">
+                        <!-- Image Slider -->
+                        <div id="gallery-slider" class="flex transition-transform duration-700 ease-in-out">
+                            <div class="w-full flex-shrink-0">
+                                <img src="img/big_pool.jpg" alt="Наша работа 1" class="w-full h-[500px] md:h-[700px] lg:h-[800px] object-cover">
+                            </div>
+                            <div class="w-full flex-shrink-0">
+                                <img src="img/big_pool2.jpg" alt="Наша работа 2" class="w-full h-[500px] md:h-[700px] lg:h-[800px] object-cover">
+                            </div>
+                            <div class="w-full flex-shrink-0">
+                                <img src="img/big_pool3.jpg" alt="Наша работа 3" class="w-full h-[500px] md:h-[700px] lg:h-[800px] object-cover">
+                            </div>
+                            <div class="w-full flex-shrink-0">
+                                <img src="img/big_pool4.jpg" alt="Наша работа 4" class="w-full h-[500px] md:h-[700px] lg:h-[800px] object-cover">
+                            </div>
+                            <div class="w-full flex-shrink-0">
+                                <img src="img/big_pool5.jpg" alt="Наша работа 5" class="w-full h-[500px] md:h-[700px] lg:h-[800px] object-cover">
+                            </div>
+                            <div class="w-full flex-shrink-0">
+                                <img src="img/big_pool6.jpg" alt="Наша работа 6" class="w-full h-[500px] md:h-[700px] lg:h-[800px] object-cover">
+                            </div>
+                            <div class="w-full flex-shrink-0">
+                                <img src="img/big_pool7.jpg" alt="Наша работа 7" class="w-full h-[500px] md:h-[700px] lg:h-[800px] object-cover">
+                            </div>
+                            <div class="w-full flex-shrink-0">
+                                <img src="img/big_pool8.jpg" alt="Наша работа 8" class="w-full h-[500px] md:h-[700px] lg:h-[800px] object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <button id="prevBtn" class="absolute left-6 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-60 hover:bg-opacity-80 text-white p-6 rounded-full transition-all duration-300 z-10 shadow-lg hover:scale-110">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button id="nextBtn" class="absolute right-6 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-60 hover:bg-opacity-80 text-white p-6 rounded-full transition-all duration-300 z-10 shadow-lg hover:scale-110">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Dots Indicator -->
+                    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+                        <button class="gallery-dot w-4 h-4 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:bg-opacity-100" data-slide="0"></button>
+                        <button class="gallery-dot w-4 h-4 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:bg-opacity-100" data-slide="1"></button>
+                        <button class="gallery-dot w-4 h-4 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:bg-opacity-100" data-slide="2"></button>
+                        <button class="gallery-dot w-4 h-4 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:bg-opacity-100" data-slide="3"></button>
+                        <button class="gallery-dot w-4 h-4 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:bg-opacity-100" data-slide="4"></button>
+                        <button class="gallery-dot w-4 h-4 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:bg-opacity-100" data-slide="5"></button>
+                        <button class="gallery-dot w-4 h-4 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:bg-opacity-100" data-slide="6"></button>
+                        <button class="gallery-dot w-4 h-4 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:bg-opacity-100" data-slide="7"></button>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid Section -->
+        <section id="services-grid" class="py-28 relative" style="background-image: url('img/uslugi.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <!-- Dark overlay -->
+            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+            
+            <div class="relative z-10 max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl md:text-6xl font-bold text-white mb-4">
+                        НАШИ УСЛУГИ
+                    </h2>
+                    <p class="text-2xl text-blue-600 font-medium">
+                        Предлагаем Вам:
+                    </p>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service 1 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                📐
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                ЭТАПЫ СТРОИТЕЛЬСТВА
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                ⚙️
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                ОБОРУДОВАНИЕ ДЛЯ БАССЕЙНА
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                🚚
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                ДОСТАВКА БАССЕЙНА
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                🧹
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                ОБСЛУЖИВАНИЕ БАССЕЙНОВ
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                🏊‍♂️
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                ВЫБОР БАССЕЙНА
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                🏗️
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                ПАВИЛЬОН ДЛЯ БАССЕЙНА
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 7 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                🎢
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                АТРАКЦИОНЫ ДЛЯ БАССЕЙНА
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 8 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                🛁
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                НАШИ ТЕХНОЛОГИИ
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 9 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                🧱
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                КОПИНГОВЫЙ КАМЕНЬ
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 10 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                🎨
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                ЦВЕТ БАССЕЙНА
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 11 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                🔧
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                ДОПОЛНИТЕЛЬНОЕ ОБОРУДОВАНИЕ
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Service 12 -->
+                    <div class="service-block group cursor-pointer">
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm border-2 border-blue-600 rounded-xl p-6 h-48 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-opacity-60 hover:border-blue-500">
+                            <div class="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                🏠
+                            </div>
+                            <h3 class="text-white text-lg font-semibold">
+                                ТЕХНИЧЕСКОЕ ПОМЕЩЕНИЕ
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">💧 Водная Индустрия</h3>
+                        <p class="text-gray-400">
+                            Профессиональные решения для водных объектов с 2003 года
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Услуги</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Бассейны</li>
+                            <li>Хаммамы</li>
+                            <li>Сауны</li>
+                            <li>Мозаика</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Контакты</h4>
+                        <div class="space-y-2 text-gray-400">
+                            <p>(3852) 315-600</p>
+                            <p>+7-913-210-30-02</p>
+                            <p>Барнаул, ул. Фурманова, 81а</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 Водная Индустрия. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scroll to top button -->
+    <button id="scrollToTop" class="scroll-to-top" onclick="scrollToTop()" title="Наверх">
+        ↑
+    </button>
+
+        <script>
+        // Header scroll behavior
+        const mainHeader = document.getElementById('main-header');
+        const stickyHeader = document.getElementById('sticky-header');
+        const headerHeight = mainHeader.offsetHeight;
+
+        // Инициализация - второй хедер скрыт
+        stickyHeader.classList.add('hidden');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > headerHeight) {
+                stickyHeader.classList.remove('hidden');
+                stickyHeader.classList.add('visible');
+                mainHeader.classList.add('hidden');
+            } else {
+                stickyHeader.classList.remove('visible');
+                stickyHeader.classList.add('hidden');
+                mainHeader.classList.remove('hidden');
+            }
+        });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        function handleScrollToTop() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Показываем кнопку при прокрутке вниз более чем на 300px
+            if (scrollTop > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Добавляем обработчик прокрутки для кнопки "Наверх"
+        window.addEventListener('scroll', handleScrollToTop);
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            event.target.reset();
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Gallery Slider Functionality
+        let currentSlide = 0;
+        const totalSlides = 8;
+
+        function showSlide(n) {
+            const slider = document.getElementById('gallery-slider');
+            const dots = document.querySelectorAll('.gallery-dot');
+            
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+            
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-opacity-50');
+                    dot.classList.add('bg-opacity-100', 'active');
+                } else {
+                    dot.classList.remove('bg-opacity-100', 'active');
+                    dot.classList.add('bg-opacity-50');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        // Gallery event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const dots = document.querySelectorAll('.gallery-dot');
+
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                });
+            });
+
+            // Initialize first slide
+            showSlide(0);
+
+
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                }
+            });
+            
+            // Touch/swipe support for mobile
+            let startX = 0;
+            let endX = 0;
+            
+            const slider = document.getElementById('gallery-slider');
+            
+            slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+            
+            slider.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            }
+        });
+
+        // Add scroll effect to service cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
